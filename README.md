@@ -39,7 +39,7 @@ To access the device and technologies, we have linke the installed UIs on the da
 - [Hue-filesystem]() for web access to the HDFS file system
 
 ## Practical
-You can login to the notebooks environment with the default BigBoards username (`bb`), but password (`bigboards`)
+You can login to the notebooks environment with the default BigBoards username (`bb`) and password (`Swh^bdl`)
 
 ### Made with ♡ for data!
 
