@@ -34,9 +34,13 @@ For now, we still host the data external to the big data clusters.
 
 To access the device and technologies, we have linke the installed UIs on the dashboards if the stack is installed:
 
-- [JupyterHub](https://jupyterhub.readthedocs.io/) notebooks to interactively write and run programs on your device
-- [Hadoop shell]() for command-line access to the Hadoop environment
-- [Hue-filesystem]() for web access to the HDFS file system
+- [Yarn]() allow the user to get status on running Hadoop applications.
+- [HDFS]() allow the user to get status on HDFS and read-onlly access to the directory tree.
+- [MR History]() allow the user to get status on finished Hadoop applications.  
+- [Notebooks](https://jupyterhub.readthedocs.io/) notebooks to interactively write and run programs on your device. Available kernels:
+    - [PySpark]() to interactively run Spark pipelines
+    - [Terminal]() for command-line access. Simply run `hadoop-shell` for full access to the Hadoop environment, incl. Pig, Scoop and Hive
+- [Hue-filesystem]() for web access to the HDFS file system (TBD)
 
 ## Practical
 You can login to the notebooks environment with the default BigBoards username (`bb`) and password (`Swh^bdl`)
