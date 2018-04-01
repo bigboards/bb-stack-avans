@@ -337,7 +337,8 @@
   </property>
   <property>
     <name>hive.metastore.uris</name>
-    <value/>
+    <!--<value/>-->
+    <value>thrift://{{ ansible_hostname }}:9083</value>
     <description>Thrift URI for the remote metastore. Used by metastore client to connect to remote metastore.</description>
   </property>
   <property>
@@ -378,7 +379,8 @@
   </property>
   <property>
     <name>javax.jdo.option.ConnectionPassword</name>
-    <value>mine</value>
+    <!--<value>mine</value>-->
+    <value>hive</value>
     <description>password to use against metastore database</description>
   </property>
   <property>
@@ -393,7 +395,8 @@
   </property>
   <property>
     <name>javax.jdo.option.ConnectionURL</name>
-    <value>jdbc:derby:;databaseName=metastore_db;create=true</value>
+    <!--<value>jdbc:derby:;databaseName=metastore_db;create=true</value>-->
+    <value>jdbc:postgresql://{{ ansible_hostname }}/metastore</value>
     <description>JDBC connect string for a JDBC metastore</description>
   </property>
   <property>
@@ -552,7 +555,8 @@
   </property>
   <property>
     <name>datanucleus.autoCreateSchema</name>
-    <value>true</value>
+    <!--<value>true</value>-->
+    <value>false</value>
     <description>creates necessary schema on a startup if one doesn't exist. set this to false, after creating it once</description>
   </property>
   <property>
@@ -787,7 +791,8 @@
   </property>
   <property>
     <name>javax.jdo.option.ConnectionDriverName</name>
-    <value>org.apache.derby.jdbc.EmbeddedDriver</value>
+    <!--<value>org.apache.derby.jdbc.EmbeddedDriver</value>-->
+    <value>org.postgresql.Driver</value>
     <description>Driver class name for a JDBC metastore</description>
   </property>
   <property>
@@ -812,7 +817,8 @@
   </property>
   <property>
     <name>javax.jdo.option.ConnectionUserName</name>
-    <value>APP</value>
+    <!--<value>APP</value>-->
+    <value>hive</value>
     <description>Username to use against metastore database</description>
   </property>
   <property>
