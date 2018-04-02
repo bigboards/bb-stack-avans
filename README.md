@@ -45,16 +45,38 @@ To access the device and technologies, we have linke the installed UIs on the da
 
 ## hadoop-shell via notebooks
 
-1. Install the [Avans introduction to Big Data app](http://hive.bigboards.io/#/library/stack/google-oauth2-104831076958946284701/bb-stack-avans) on your device
-1. Link to the Jupyter notebooks via the `Available Views` link and log in to the notebooks environment 
-1. Login with the default BigBoards username (`bb`) and password (`Swh^bdl`). Take care on entering the password, because of 
-the circumflex. If it doesn't work type it in a text editor and paste it into the password field.
+1. Install the [Avans introduction to Big Data app](http://hive.bigboards.io/#/library/stack/google-oauth2-104831076958946284701/bb-stack-avans) on your device.
+1. Link to the Jupyter notebooks via the `Available Views` link. 
+1. Login with the default BigBoards username (`bb`) and password (`Swh^bdl`). _Take care on entering the password, because of 
+the circumflex. If you can not login, copy and paste the password from a text editor._
 1. From the `Files` tab, launch a new terminal with the `New` > `Terminal` drop-down menu at the right-hand side of the screen. This brings you to a terminal shell inside the hadoop cluster. 
-1. Run `hadoop-shell` to initialize a bash shell with all path to command lines initialized.
+1. Run `hadoop-shell` to initialize a bash shell with all paths to commands initialized.
 
 As an example, run `pig` to get inside a Grunt shell and try the command `fs -ls /tmp` to list the HDFS temporary folder
+From the terminal you can also run `Sqoop` commands.
 
-## Hive query
+## Spark
+The Spark environment is the accessible as **PySpark notebooks**. 
+A notebook is an interactive document that contains cells.
+A cell can either be **MarkDown styled text** or **PySpark code**. 
+The combination of both allows you to write nicely documented, but executable, **data recipes**. 
+  
+1. Log into the Notebooks environment.
+1. Create a new `pyspark` notebook using the `New` > `PySpark` dropdown menu.
+1. Type `sc`
+1. And `<ctrl>+<enter>` to run the cell
+1. You'll get some output like `<pyspark.context.SparkContext at 0x7f2c0be07c50>`
+1. Use the menus `Insert` > `Insert Cell Above` to add a cell above our `sc`
+1. Click inside the 1st cell and use menus `Cell` > `Cell Type` > `Markdown` to change it to text
+1. Type some styled text, e.g. surrounding text with ** for bold and ## for titles. This should get you going!
+1. Use `File` > `Rename` to give your notebook a unique name
+1. Make sure you `File` > `Save and Checkpoint` it
+1. Now `File` > `Close and Halt` to leave the notebook and stop the running pyspark kernel.
+
+On the central notebook folders, you can always reopen your saved notebooks and organize them like any file system. 
+
+
+## Hive
 
 1. Get into an `hadoop-shell` as explained in the previous paragraph
 1. Run `beeline` to get into Hive's interactive query environment
@@ -66,6 +88,7 @@ As an example, run `pig` to get inside a Grunt shell and try the command `fs -ls
 1. `SELECT count(*) FROM pokes;`
 1. Run some other experiments on pokes, e.g. `SELECT MIN(foo), MAX(foo) FROM pokes;`
 1. `DROP TABLE pokes;` to clean up
+1. Exit beeline using `!quit`
 
 ### Made with ♡ for data!
 
