@@ -16,7 +16,8 @@ During this workshop, you can
 
 ## Big Data technologies
 
-We have packaged the most common technologies as a [BigBoards stack](http://hive.bigboards.io/#/library/stack/google-oauth2-103728492012393057640/bb-stack-avans). With the click of a button you can install everything on your BigBoards device. Just head over to the [BigBoards Hive](http://hive.bigboards.io).
+We have packaged the most common technologies as the [Avans introduction to Big Data stack](http://hive.bigboards.io/#/library/stack/google-oauth2-104831076958946284701/bb-stack-avans). 
+With the click of a button you can install everything on your BigBoards device. Just head over to the [BigBoards Hive](http://hive.bigboards.io) and create an account. 
 
 The technologies which you can use to build your end-to-end data pipeline, are:
 
@@ -42,8 +43,29 @@ To access the device and technologies, we have linke the installed UIs on the da
     - [Terminal]() for command-line access. Simply run `hadoop-shell` for full access to the Hadoop environment, incl. Pig, Scoop and Hive
 - [Hue-filesystem]() for web access to the HDFS file system (TBD)
 
-## Practical
-You can login to the notebooks environment with the default BigBoards username (`bb`) and password (`Swh^bdl`)
+## hadoop-shell via notebooks
+
+1. Install the [Avans introduction to Big Data app](http://hive.bigboards.io/#/library/stack/google-oauth2-104831076958946284701/bb-stack-avans) on your device
+1. Link to the Jupyter notebooks via the `Available Views` link and log in to the notebooks environment 
+1. Login with the default BigBoards username (`bb`) and password (`Swh^bdl`). Take care on entering the password, because of 
+the circumflex. If it doesn't work type it in a text editor and paste it into the password field.
+1. From the `Files` tab, launch a new terminal with the `New` > `Terminal` drop-down menu at the right-hand side of the screen. This brings you to a terminal shell inside the hadoop cluster. 
+1. Run `hadoop-shell` to initialize a bash shell with all path to command lines initialized.
+
+As an example, run `pig` to get inside a Grunt shell and try the command `fs -ls /tmp` to list the HDFS temporary folder
+
+## Hive query
+
+1. Get into an `hadoop-shell` as explained in the previous paragraph
+1. Run `beeline` to get into Hive's interactive query environment
+1. Run `!connect jdbc:hive2://<device-name>-n2:10000` 
+1. username `hive`
+1. password `hive`
+1. `CREATE TABLE pokes (foo INT, bar STRING);`
+1. `LOAD DATA LOCAL INPATH '/opt/hive/examples/files/kv1.txt' OVERWRITE INTO TABLE pokes;`
+1. `SELECT count(*) FROM pokes;`
+1. Run some other experiments on pokes, e.g. `SELECT MIN(foo), MAX(foo) FROM pokes;`
+1. `DROP TABLE pokes;` to clean up
 
 ### Made with ♡ for data!
 
